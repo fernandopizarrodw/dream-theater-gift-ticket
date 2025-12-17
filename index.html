@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dream Theater — Ticket Pass</title>
+  <meta name="description" content="A premium symbolic ticket pass." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
+
+  <!-- For "Download PNG" -->
+  <script defer src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script defer src="./app.js"></script>
+</head>
+
+<body>
+  <main class="wrap">
+    <header class="topbar">
+      <div class="brand">
+        <div class="dot"></div>
+        <div class="brand-text">
+          <div class="brand-kicker">SYMBOLIC PASS</div>
+          <div class="brand-title">DREAM THEATER</div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="btn" id="copyLinkBtn" type="button">Copy link</button>
+        <button class="btn btn-ghost" id="downloadBtn" type="button">Download PNG</button>
+      </div>
+    </header>
+
+    <section class="stage">
+      <div class="card" id="ticket">
+        <div class="card-glow"></div>
+
+        <div class="flyer-container">
+          <img src="./flayer.png" alt="Dream Theater - Parasomnia Tour 2026" class="flyer-img" />
+        </div>
+
+        <div class="ticket-head">
+          <div class="ticket-title">
+            <div class="h1">DREAM THEATER</div>
+            <div class="h2">LIVE IN <span id="cityText">BUENOS AIRES</span></div>
+          </div>
+
+          <div class="status">
+            <div class="pill">
+              <span class="check">✔</span>
+              <span>TICKET CONFIRMED</span>
+            </div>
+            <div class="mini" id="dateText">APRIL 2026</div>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="grid">
+          <div class="field">
+            <div class="label">ATTENDEE</div>
+            <div class="value" id="nameText">LA OSITA CUTIE CUMPLEAÑERA</div>
+          </div>
+
+          <div class="field">
+            <div class="label">VENUE</div>
+            <div class="value" id="venueText">BUENOS AIRES, ARGENTINA</div>
+          </div>
+
+          <div class="field">
+            <div class="label">PASS CODE</div>
+            <div class="value mono" id="codeText">DT-ARG-0001</div>
+          </div>
+
+          <div class="field">
+            <div class="label">RELEASE</div>
+            <div class="value" id="releaseText">1 WEEK BEFORE THE SHOW</div>
+          </div>
+        </div>
+
+        <div class="note">
+          <div class="note-title">IMPORTANT</div>
+          <p class="note-text">
+            This is a premium symbolic pass. The official digital ticket will be released by the ticketing system
+            one week before the show.(jiji)
+          </p>
+          <p class="note-text subtle">
+            "This pass is valid emotionally from today."
+          </p>
+        </div>
+
+        <div class="ticket-foot">
+          <div class="byline">
+            <div class="label">GIFTED BY</div>
+            <div class="value" id="giftedByText">FMD</div>
+          </div>
+
+          <div class="qrbox">
+            <div class="qr-label">OPEN LINK</div>
+            <a class="qr-link" id="selfLink" href="#" target="_blank" rel="noopener">this page</a>
+          </div>
+        </div>
+      </div>
+
+      <section class="helper">
+        <h3>Customize via URL</h3>
+        <p>
+          Use parameters:
+          <span class="mono">name</span>,
+          <span class="mono">month</span>,
+          <span class="mono">year</span>,
+          <span class="mono">city</span>,
+          <span class="mono">venue</span>,
+          <span class="mono">giftedBy</span>
+        </p>
+        <div class="example mono" id="exampleUrl"></div>
+      </section>
+    </section>
+
+    <footer class="footer">
+      <span class="muted">Made for a birthday gift — premium, symbolic, clean.</span>
+    </footer>
+  </main>
+
+  <div class="toast" id="toast" aria-live="polite" aria-atomic="true"></div>
+</body>
+</html>
