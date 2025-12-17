@@ -13,6 +13,10 @@
   <!-- For "Download PNG" -->
   <script defer src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
   <script defer src="./app.js"></script>
+  <script defer src="./confetti.js"></script>
+  <script defer src="./countdown.js"></script>
+  <script defer src="./surprise.js"></script>
+  <script defer src="./sparkles.js"></script>
 </head>
 
 <body>
@@ -36,10 +40,6 @@
       <div class="card" id="ticket">
         <div class="card-glow"></div>
 
-        <div class="flyer-container">
-          <img src="./flayer.png" alt="Dream Theater - Parasomnia Tour 2026" class="flyer-img" />
-        </div>
-
         <div class="ticket-head">
           <div class="ticket-title">
             <div class="h1">DREAM THEATER</div>
@@ -55,12 +55,33 @@
           </div>
         </div>
 
+
         <div class="divider"></div>
+
+        <!-- EVENT FLYER PREVIEW -->
+        <div class="flyer-block">
+          <div class="flyer-label">EVENT VISUAL</div>
+
+          <div class="flyer-frame">
+            <!--
+              Replace src with the official flyer image
+              Recommended ratio: 16:9 or vertical poster
+            -->
+            <img
+              src="./flayer.jpg"
+              alt="Dream Theater Parasomnia Tour 2026 Flyer"
+            />
+          </div>
+
+          <div class="flyer-note">
+            Official tour artwork – for visual reference
+          </div>
+        </div>
 
         <div class="grid">
           <div class="field">
             <div class="label">ATTENDEE</div>
-            <div class="value" id="nameText">LA OSITA CUTIE CUMPLEAÑERA</div>
+            <div class="value" id="nameText">YOUR FRIEND</div>
           </div>
 
           <div class="field">
@@ -83,17 +104,46 @@
           <div class="note-title">IMPORTANT</div>
           <p class="note-text">
             This is a premium symbolic pass. The official digital ticket will be released by the ticketing system
-            one week before the show.(jiji)
+            one week before the show.
           </p>
           <p class="note-text subtle">
-            "This pass is valid emotionally from today."
+            “This pass is valid emotionally from today.” (jiji)
           </p>
         </div>
 
+        <div class="music-block">
+          <div class="music-label">SONG FOR YOU</div>
+          <button class="btn btn-bear-music" id="bearMusicBtn" type="button" title="¡Hazme click!">🐻</button>
+          <audio id="audioGift" controls preload="none" style="width:100%;max-width:340px;outline:none;border-radius:10px;display:none;">
+            <source src="./Metropolis - Part I The Miracle and the Sleeper - Dream Theater.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+  <script>
+    window.addEventListener('DOMContentLoaded', function () {
+      var bearBtn = document.getElementById('bearMusicBtn');
+      var audio = document.getElementById('audioGift');
+      if (bearBtn && audio) {
+        bearBtn.addEventListener('click', function () {
+          audio.style.display = 'block';
+          audio.play();
+          bearBtn.style.display = 'none';
+        });
+      }
+    });
+  </script>
+
+        <div class="countdown-block">
+          <div class="countdown-label">COUNTDOWN TO SHOW</div>
+          <div class="countdown-timer" id="countdownTimer">00d 00h 00m 00s</div>
+        </div>
+
         <div class="ticket-foot">
+                <section class="helper">
+                  <button class="btn btn-surprise" id="surpriseBtn" type="button">🎁 Sorpresa</button>
           <div class="byline">
             <div class="label">GIFTED BY</div>
-            <div class="value" id="giftedByText">FMD</div>
+            <div class="value" id="giftedByText">A FRIEND</div>
           </div>
 
           <div class="qrbox">
