@@ -14,6 +14,10 @@
         </div>
       `;
       document.body.appendChild(modal);
+      // Centrar modal en el viewport actual
+      setTimeout(()=>{
+        modal.scrollIntoView({behavior:'smooth', block:'center'});
+      }, 100);
       document.getElementById('closeSurpriseBtn').onclick = () => modal.remove();
       modal.onclick = (e) => { if (e.target === modal) modal.remove(); };
     }
