@@ -27,17 +27,51 @@
   border: 2px solid var(--accent);
   width: 56px;
   height: 56px;
+
+  :root{
+    --bg: #07080b;
+    --panel: rgba(18, 20, 26, .78);
+    --panel2: rgba(10, 11, 14, .85);
+    --stroke: rgba(255,255,255,.10);
+    --stroke2: rgba(255,255,255,.06);
+    --txt: rgba(255,255,255,.92);
+    --muted: rgba(255,255,255,.62);
+    --muted2: rgba(255,255,255,.45);
+    --accent: #a7ff7a;
+    --accent2: rgba(167,255,122,.14);
+    --shadow: 0 10px 32px rgba(0,0,0,.55);
+    --r: 14px;
+    --font-main: 1.13rem;
+    --font-title: 2.1rem;
+    --font-sub: 1.05rem;
+    --font-btn: 1.08rem;
+    --margin-main: 18px;
+    --margin-block: 14px;
+  }
   margin: 0 auto 8px auto;
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow: 0 2px 12px rgba(0,0,0,.18);
+
+  .wrap{
+    max-width: 100vw;
+    margin: 0 auto;
+    padding: 18px 0 18px 0;
+  }
   cursor: pointer;
   transition: background 0.18s, transform 0.12s;
   padding: 0;
 }
 .btn-bear-music:hover {
   background: linear-gradient(90deg, #a7ff7a 0%, #7adfff 100%);
+
+  .brand-title{
+    font-family: Oswald, Inter, sans-serif;
+    font-size: var(--font-sub);
+    letter-spacing: .06em;
+    text-transform: uppercase;
+  }
   transform: scale(1.08);
 }
 /* ===== MUSIC BLOCK ===== */
@@ -48,6 +82,17 @@
 .music-label {
   font-size: 11px;
   letter-spacing: .18em;
+
+  .card{
+    position: relative;
+    border-radius: var(--r);
+    border: 1px solid var(--stroke);
+    background: linear-gradient(180deg, var(--panel), var(--panel2));
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    padding: 18px 6px 18px 6px;
+    max-width: 99vw;
+  }
   text-transform: uppercase;
   color: rgba(255,255,255,.65);
   margin-bottom: 4px;
@@ -62,31 +107,114 @@
 #surpriseModal {
   position: fixed;
   left: 0; top: 0; width: 100vw; height: 100vh;
+
+  .ticket-title .h1{
+    font-family: Oswald, Inter, sans-serif;
+    font-size: var(--font-title);
+    letter-spacing: .10em;
+    text-transform: uppercase;
+    line-height: 1.0;
+    margin-bottom: 6px;
+  }
+  .ticket-title .h2{
+    margin-top: 4px;
+    font-size: var(--font-sub);
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
   z-index: 10000;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .surprise-modal-bg {
+
+  .field{
+    border: 1px solid var(--stroke2);
+    border-radius: 12px;
+    padding: 12px 10px;
+    background: rgba(255,255,255,.03);
+    font-size: var(--font-main);
+  }
   position: absolute;
   left: 0; top: 0; width: 100vw; height: 100vh;
   background: rgba(0,0,0,0.65);
   z-index: 1;
 }
 .surprise-modal-content {
+
+  .footer{
+    margin-top: 18px;
+    color: var(--muted2);
+    font-size: var(--font-sub);
+    text-align: center;
+  }
   position: relative;
   z-index: 2;
   background: #181a22;
   border-radius: 18px;
   padding: 28px 22px 18px 22px;
   box-shadow: 0 8px 40px rgba(0,0,0,.45);
+
+  .btn, .btn-bear-music, .btn-surprise{
+    font-size: var(--font-btn);
+    padding: 14px 18px;
+    border-radius: 12px;
+    margin: 0 0 14px 0;
+  }
   text-align: center;
   max-width: 340px;
 }
 .surprise-modal-content img {
-  width: 180px;
-  border-radius: 12px;
-  margin-bottom: 12px;
+
+  .flyer-block{
+    margin: 22px 0 10px 0;
+    padding: 0;
+  }
+  width: 100%;
+  max-width: 420px;
+  min-width: 180px;
+  border-radius: 18px;
+  margin-bottom: 18px;
+  display: block;
+  height: auto;
+  box-shadow: 0 6px 32px 0 rgba(0,0,0,0.22);
+
+  .flyer-frame img{
+    width: 100%;
+    max-width: 420px;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0,0,0,.32);
+    display: block;
+    margin: 0 auto;
+  }
+}
+.surprise-modal-content {
+  width: 98vw;
+  max-width: 420px;
+  min-width: 0;
+  padding: 16px 4vw 12px 4vw;
+  box-sizing: border-box;
+}
+.surprise-modal-content img {
+  width: 100%;
+  max-width: 100vw;
+  min-width: 0;
+  height: auto;
+  border-radius: 14px;
+  margin-bottom: 14px;
+  display: block;
+}
+@media (min-width: 600px) {
+  .surprise-modal-content {
+    width: 420px;
+    padding: 28px 22px 18px 22px;
+  }
+  .surprise-modal-content img {
+    border-radius: 18px;
+    margin-bottom: 18px;
+  }
 }
 .surprise-msg {
   font-size: 1.1rem;
@@ -97,6 +225,54 @@
 /* ===== COUNTDOWN BLOCK ===== */
 .countdown-block {
   margin: 18px 0 0 0;
+
+  @media (min-width: 600px){
+    .wrap{
+      max-width: 980px;
+      padding: 32px;
+    }
+    .topbar{
+      gap: 18px;
+      margin-bottom: 24px;
+      padding: 0;
+    }
+    .brand-title{
+      font-size: 2rem;
+    }
+    .card{
+      padding: 32px;
+      max-width: 540px;
+    }
+    .ticket-title .h1{
+      font-size: 2.8rem;
+    }
+    .ticket-title .h2{
+      font-size: 1.2rem;
+    }
+    .grid{
+      grid-template-columns: 1fr 1fr;
+      gap: 18px 22px;
+    }
+    .field{
+      border-radius: 16px;
+      padding: 16px 16px;
+      font-size: 1.15rem;
+    }
+    .footer{
+      font-size: 1rem;
+      margin-top: 24px;
+    }
+    .btn, .btn-bear-music, .btn-surprise{
+      font-size: 1.15rem;
+      padding: 18px 24px;
+      border-radius: 14px;
+      margin: 0 0 18px 0;
+    }
+    .flyer-frame img{
+      max-width: 520px;
+      border-radius: 20px;
+    }
+  }
   text-align: center;
 }
 .countdown-label {
@@ -195,6 +371,7 @@
   color: rgba(255,255,255,.55);
   font-style: italic;
 }
+
 :root{
   --bg: #07080b;
   --panel: rgba(18, 20, 26, .78);
@@ -204,10 +381,10 @@
   --txt: rgba(255,255,255,.92);
   --muted: rgba(255,255,255,.62);
   --muted2: rgba(255,255,255,.45);
-  --accent: #a7ff7a; /* subtle neon */
+  --accent: #a7ff7a;
   --accent2: rgba(167,255,122,.14);
-  --shadow: 0 30px 80px rgba(0,0,0,.65);
-  --r: 22px;
+  --shadow: 0 10px 32px rgba(0,0,0,.55);
+  --r: 14px;
 }
 
 *{ box-sizing: border-box; }
@@ -224,17 +401,18 @@ body{
 }
 
 .wrap{
-  max-width: 980px;
+  max-width: 100vw;
   margin: 0 auto;
-  padding: 22px;
+  padding: 10px 0 16px 0;
 }
 
 .topbar{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap: 14px;
-  margin-bottom: 18px;
+  gap: 8px;
+  margin-bottom: 10px;
+  padding: 0 8px;
 }
 
 .brand{
@@ -260,7 +438,7 @@ body{
 
 .brand-title{
   font-family: Oswald, Inter, sans-serif;
-  font-size: 22px;
+  font-size: 16px;
   letter-spacing: .06em;
   text-transform: uppercase;
 }
@@ -304,7 +482,8 @@ body{
   background: linear-gradient(180deg, var(--panel), var(--panel2));
   box-shadow: var(--shadow);
   overflow: hidden;
-  padding: 22px;
+  padding: 10px 4px 16px 4px;
+  max-width: 99vw;
 }
 
 .card-glow{
@@ -379,14 +558,14 @@ body{
 
 .ticket-title .h1{
   font-family: Oswald, Inter, sans-serif;
-  font-size: 34px;
+  font-size: 20px;
   letter-spacing: .10em;
   text-transform: uppercase;
   line-height: 1.0;
 }
 .ticket-title .h2{
-  margin-top: 6px;
-  font-size: 14px;
+  margin-top: 4px;
+  font-size: 11px;
   letter-spacing: .18em;
   text-transform: uppercase;
   color: var(--muted);
@@ -437,17 +616,17 @@ body{
 }
 
 .grid{
-  display:grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px 18px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
   position: relative;
   z-index: 1;
 }
 
 .field{
   border: 1px solid var(--stroke2);
-  border-radius: 16px;
-  padding: 12px 12px;
+  border-radius: 12px;
+  padding: 8px 8px;
   background: rgba(255,255,255,.03);
 }
 
@@ -564,9 +743,10 @@ body{
 }
 
 .footer{
-  margin-top: 16px;
+  margin-top: 12px;
   color: var(--muted2);
-  font-size: 12px;
+  font-size: 11px;
+  text-align: center;
 }
 
 .toast{
@@ -588,11 +768,39 @@ body{
 }
 .toast.show{ opacity: 1; }
 
-@media (max-width: 720px){
-  .ticket-head{ flex-direction: column; align-items:flex-start; }
-  .status{ align-items:flex-start; }
-  .grid{ grid-template-columns: 1fr; }
-  .actions{ width:100%; justify-content:flex-end; }
-  .brand-title{ font-size: 18px; }
-  .ticket-title .h1{ font-size: 28px; }
+@media (min-width: 600px){
+  .wrap{
+    max-width: 980px;
+    padding: 22px;
+  }
+  .topbar{
+    gap: 14px;
+    margin-bottom: 18px;
+    padding: 0;
+  }
+  .brand-title{
+    font-size: 22px;
+  }
+  .card{
+    padding: 22px;
+    max-width: 540px;
+  }
+  .ticket-title .h1{
+    font-size: 34px;
+  }
+  .ticket-title .h2{
+    font-size: 14px;
+  }
+  .grid{
+    grid-template-columns: 1fr 1fr;
+    gap: 14px 18px;
+  }
+  .field{
+    border-radius: 16px;
+    padding: 12px 12px;
+  }
+  .footer{
+    font-size: 12px;
+    margin-top: 16px;
+  }
 }
